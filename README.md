@@ -1,83 +1,223 @@
-**💰 Personal Expense Tracker CLI**
+# 💰 Personal Expense Tracker CLI
 
+> An interactive, high-performance command-line tool built to manage your finances without ever leaving your terminal.
 
+This project marks my "return to glory" after a 3-month hiatus, focusing on mastering **Node.js** asynchronous logic and **CRUD** operations.
 
+![Node.js](https://img.shields.io/badge/Node.js-18+-green?style=flat-square&logo=node.js)
+![Inquirer.js](https://img.shields.io/badge/Inquirer.js-8.0+-blue?style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)
 
+---
 
+## 🚀 Features
 
-A simple interactive command-line expense tracker built with Node.js and Inquirer.js.
+- ✅ **Add Expense** – Record purchases with automated name and cost mapping
+- ✅ **View Expenses** – Formatted list view of all transactions with proper currency formatting
+- ✅ **Show Total** – Real-time calculation using optimized JavaScript `.reduce()` logic
+- ✅ **Edit/Delete** – Full control over your data with interactive selection
+- ✅ **Input Validation** – Prevents invalid entries with helpful error messages
+- ✅ **Interactive UI** – Built with `Inquirer.js` (CLI) or EJS templates (Web)
+- ✅ **Currency Formatting** – Nigerian Naira (₦) with comma separators
 
-This CLI allows you to add, view, edit, delete, and calculate expenses directly from your terminal, making it easy to keep track of spending without leaving the command line.
+---
 
+## 🛠 Tech Stack
 
-**🚀 Features**
+| Technology | Purpose |
+| :--- | :--- |
+| **Node.js** | JavaScript Runtime Environment |
+| **Inquirer.js** | Interactive Command Line User Interface |
+| **JavaScript (ESM)** | Modern Module System (import/export) |
 
-✔ Add Expense – Record a purchase with its name and cost
-✔ View Expenses – Display all saved expenses
-✔ Show Total – Calculate the total amount spent
-✔ Edit Expense – Modify an existing expense
-✔ Delete Expense – Remove an expense from the list
-✔ Interactive CLI Menu – Easy navigation using arrow keys
+---
 
+## 📦 Installation & Setup
 
-**🛠 Built With**
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
 
-Node.js
-
-JavaScript (ES Modules)
-
-Inquirer.js – Interactive command-line prompts
-
-
-**📦 Installation**
-
-**1️⃣ Clone the repository**
+1️⃣ **Clone the repository**
+```bash
 git clone https://github.com/CrufusInTech/personal_expense_tracker
+cd personal_expense_tracker
+```
 
-**2️⃣ Navigate into the project folder**
-cd expense-tracker-cli
-
-**3️⃣ Install dependencies**
+2️⃣ **Install dependencies**
+```bash
 npm install
-▶ Run the Application
+```
 
-**Start the CLI:****
-
+3️⃣ **Run the application**
+```bash
 node index.js
+```
 
-**You will see an interactive menu like this:**
+---
 
-**
-What would you like to do?**
+## 📖 Usage
 
+After running `node index.js`, you'll see an interactive menu:
+
+```
+? What would you like to do? (Use arrow keys)
 ❯ Add Expense
   View Expenses
   Show Total
   Edit Expense
   Delete Expense
   Exit
+```
 
-Use the arrow keys to navigate and Enter to select.
+**Add an Expense:**
+```
+? What did you buy?
+→ New Laptop
+
+? How much did it cost?
+→ 250000
+```
+
+**View All Expenses:**
+```
+--- Your Expenses ---
+1. New Laptop: ₦250,000.00
+2. Groceries: ₦5,500.50
+3. Internet Bill: ₦2,000.00
+---------------------
+```
+
+**Show Total:**
+```
+The total is : ₦257,500.50
+```
+
+---
+
+## 📁 Project Structure
+
+```
+personal_expense_tracker/
+├── index.js                 # Main application file
+├── package.json
+├── package-lock.json
+└── README.md
+```
+
+---
+
+## 🎯 Key Concepts Learned
+
+### Asynchronous Programming
+- `async/await` for handling user input sequentially
+- Promise-based API calls and request handling
+
+### CRUD Operations
+- **Create** – Add new expenses
+- **Read** – View and display expenses
+- **Update** – Edit expense details
+- **Delete** – Remove expenses
+
+### Data Validation
+- Name field validation (non-empty)
+- Amount validation (valid positive number)
+- Error handling and user feedback
+
+### Array Methods
+- `.reduce()` – Calculate total expenses
+- `.forEach()` – Display expenses
+- `.map()` – Transform data
+- `.filter()` – Remove items
+- `.splice()` – Modify arrays
+
+---
+
+## 💡 Code Examples
+
+### Add Expense with Validation
+```javascript
+const detailsOfExpense = await inquirer.prompt([
+    {
+        name: 'name',
+        message: '\nWhat did you buy?\n',
+        validate: function(value) {
+            return value.trim() !== '' || 'Please enter a valid name';
+        }
+    },
+    {
+        name: 'amount',
+        message: '\nHow much did it cost?\n',
+        validate: function(value) {
+            const valid = !isNaN(parseFloat(value)) && parseFloat(value) > 0;
+            return valid || 'Please enter a valid positive number';
+        }
+    }
+]);
+
+const numericAmount = parseFloat(detailsOfExpense.amount);
+expenses.push({name: detailsOfExpense.name, amount: numericAmount});
+```
+
+### Calculate Total with Reduce
+```javascript
+function calculate(accumulator, curr) {
+    const amount = isNaN(curr.amount) ? 0 : curr.amount;
+    return accumulator + amount;
+}
+
+const total = expenses.reduce(calculate, 0);
+console.log(`The total is : ₦${total.toLocaleString('en-NG', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`);
+```
 
 
-**📚 Concepts Demonstrated**
+## 🤝 Contributing
 
-**This project demonstrates:**
+Contributions are welcome! Here's how you can help:
 
-Building interactive CLI applications
+1. **Fork** the repository
+2. **Create** a feature branch (`git checkout -b feature/AmazingFeature`)
+3. **Commit** your changes (`git commit -m 'Add some AmazingFeature'`)
+4. **Push** to the branch (`git push origin feature/AmazingFeature`)
+5. **Open** a Pull Request
 
-Handling user input with Inquirer
+### Code Style
+- Use ESM modules (`import`/`export`)
+- Follow async/await patterns
+- Add validation for all inputs
+- Include error handling
 
-Working with arrays and objects
+---
 
-Implementing CRUD operations
+## 📝 License
 
-Input validation
+This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
 
-Structuring a Node.js command-line program
+---
+
+## 👨‍💻 Author
+
+**CrufusInTech**
+- GitHub: [@CrufusInTech](https://github.com/CrufusInTech)
+- Returning from hiatus with a focus on **Node.js mastery** ✨
+
+---
+
+## 🙏 Acknowledgments
+
+- [Inquirer.js](https://github.com/SBoudrias/Inquirer.js) – For the amazing CLI framework
+- [Express.js](https://expressjs.com/) – For the lightweight web framework
+- The Node.js community – For endless learning resources
+
+---
 
 
-**👤 Author**
+---
 
-**Crufus**
+<div align="center">
 
+**⭐ If you find this helpful, please consider giving it a star!**
+
+Made with ❤️ while mastering Node.js
+
+</div>
