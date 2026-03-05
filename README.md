@@ -1,59 +1,52 @@
 💰 Personal Expense Tracker CLI
 
-A simple Command Line Expense Tracker built with Node.js and Inquirer.js.
-This CLI allows you to record, view, edit, delete, and calculate expenses directly from your terminal.
+A simple and interactive Command Line Expense Tracker built with Node.js and Inquirer.js.
+This tool allows users to track daily expenses directly from the terminal by adding, viewing, editing, deleting, and calculating expenses.
 
-It’s designed as a beginner-friendly project to practice JavaScript, Node.js, arrays, and user prompts.
+The project demonstrates how to build a fully interactive CLI application using modern JavaScript and Node.js.
 
 🚀 Features
 
-➕ Add Expenses – Record purchases with name and amount
+➕ Add Expense – Record a purchase with a name and amount
 
 📋 View Expenses – Display all recorded expenses
 
-🧮 Show Total – Calculate the total amount spent
+🧮 Show Total – Calculate the total money spent
 
-✏️ Edit Expenses – Modify the name or amount of an expense
+✏️ Edit Expense – Modify an existing expense
 
-❌ Delete Expenses – Remove an expense from the list
+❌ Delete Expense – Remove an expense from the list
 
-🚪 Exit – Quit the CLI application
+🚪 Exit – Close the application
 
-📦 Tech Stack
+🛠️ Built With
 
 Node.js
 
-Inquirer.js – For interactive command line prompts
-
 JavaScript (ES Modules)
 
-📁 Project Structure
-expense-tracker-cli
-│
-├── index.js
-├── package.json
-├── package-lock.json
-└── README.md
-⚙️ Installation
+Inquirer.js – Interactive CLI prompts
+
+📦 Installation
 
 Clone the repository:
 
-git clone https://github.com/yourusername/expense-tracker-cli.git
+git clone https://github.com/YOUR_USERNAME/expense-tracker-cli.git
 
-Navigate into the project folder:
+Move into the project folder:
 
 cd expense-tracker-cli
 
 Install dependencies:
 
 npm install
-▶️ Running the CLI
+▶️ Usage
 
-Start the application with:
+Run the application:
 
 node index.js
 
-You will see a menu like this:
+You will see an interactive menu in your terminal:
 
 What would you like to do?
 
@@ -63,43 +56,41 @@ What would you like to do?
   Edit Expense
   Delete Expense
   Exit
-🧾 Example Usage
-Add Expense
-What did you buy?
-> Groceries
 
-How much did it cost?
-> 5000
+Follow the prompts to manage your expenses.
 
-Result:
-
-Expense added successfully!
-View Expenses
-1. Groceries: ₦5,000.00
-2. Transport: ₦1,200.00
-Show Total
-The total is: ₦6,200.00
-🧠 Learning Goals
-
-This project demonstrates:
-
-Working with arrays of objects
-
-Using Inquirer.js prompts
+📚 What This Project Demonstrates
 
 Building interactive CLI applications
 
-Performing CRUD operations in JavaScript
+Handling user input with Inquirer
 
-Handling user input validation
+Working with arrays and objects in JavaScript
 
+Implementing CRUD operations (Create, Read, Update, Delete)
+
+Validating user input
+
+Structuring a Node.js CLI program
+
+🔮 Possible Improvements
+
+Future enhancements could include:
+
+Saving expenses to a file or database
+
+Adding expense categories
+
+Adding date tracking
+
+Generating expense reports
+
+Exporting data to CSV or JSON
 
 👤 Author
 
 CrufusInTech
 
+📄 License
 
-
-📜 License
-
-This project is open source and available under the MIT License.
+This project is licensed under the MIT License.
